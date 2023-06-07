@@ -28,7 +28,7 @@ const Slider = () => {
                     hide: true,
                 }}
                 autoplay={{
-                    delay: 1500,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Scrollbar]}

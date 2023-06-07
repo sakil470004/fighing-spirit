@@ -10,10 +10,9 @@ const InstructorCard = ({  instructor }) => {
     const navigate = useNavigate()
     const handleDetails = () => {
         navigate(`/toyDetails/${_id}`)
-    }
-    console.log(img)
+    }  
     return (
-        <div data-aos="flip-right" className="card card-compact h-[650px] bg-base-100 shadow-xl my-2">
+        <div  className="card card-compact h-[650px] bg-base-100 shadow-xl my-2 py-4">
             <figure><img className='object-cover' src={img} alt="fight" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

@@ -13,7 +13,7 @@ const ClassesCard = ({ singleClass }) => {
         navigate(`/toyDetails/${_id}`)
     }
     return (
-        <div data-aos="flip-right" className="card card-compact h-[650px] bg-base-100 shadow-xl my-2">
+        <div  className="card card-compact h-[650px] bg-base-100 shadow-xl my-2 py-4">
             <figure><img className='object-cover' src={image} alt="fight" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
