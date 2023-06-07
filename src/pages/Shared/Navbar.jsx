@@ -11,7 +11,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar bg-red-50 px-4 m-0 z-[999999]">
+        <div className="navbar bg-red-50 px-4 m-0 z-[999999] py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden z-[9999]">
