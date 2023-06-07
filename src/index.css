@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+    background-color: #000000;
+    color:white
+}
+.nav-bg{
+    background-color: #030408;
+} */
+.mySwiper>*{
+z-index: -100;
+}
