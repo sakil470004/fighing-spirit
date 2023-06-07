@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 function Footer() {
   return (
-    <div className=' bg-red-50 py-6 px-2'>
+    <div className='  py-6 px-2'>
 
 
       <footer className="footer gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-start md:place-items-center  justify-between">

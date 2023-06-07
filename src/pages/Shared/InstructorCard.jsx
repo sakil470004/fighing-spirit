@@ -17,7 +17,7 @@ const InstructorCard = ({  instructor }) => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p className='text-sm text-gray-400'>{description}</p>
-                <p className=''>Contact Me with : <span className='text-red-500'>{email}</span></p>
+                <p className=''>Contact Me with : <span className='text-rose-400'>{email}</span></p>
             </div>
         </div>
     );

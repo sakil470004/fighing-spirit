@@ -9,8 +9,9 @@ import "swiper/css/pagination";
 
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Pagination ,Autoplay} from "swiper";
 import InstructorCard from '../Shared/InstructorCard';
+import { Link } from 'react-router-dom';
 
 const PopularInstructors = () => {
     const [instructors, setInstructors] = useState([])
@@ -22,32 +23,37 @@ const PopularInstructors = () => {
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     useEffect(() => {
-      // Update the window width on resize
-      const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-      };
-  
-      // Add event listener for window resize
-      window.addEventListener('resize', handleResize);
-  
-      // Clean up the event listener on component unmount
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        // Update the window width on resize
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // Add event listener for window resize
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
-  
+
     return (
-        <div className='my-10'>
+        <div className='my-20 '>
             <SectionTittle heading={'Skilled Trainer'} subHeading={'Meet Our Highly Skilled Instructor!'}></SectionTittle>
             <Swiper
                 loop={true}
-                slidesPerView={windowWidth>1000 ? 3 : 1}
+                slidesPerView={windowWidth > 1000 ? 3 : 1}
                 spaceBetween={30}
                 freeMode={true}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[FreeMode, Pagination]}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: true,
+                    reverseDirection: true,
+                }}
+                modules={[FreeMode, Pagination,Autoplay]}
                 className="mySwiper"
             >
                 {
@@ -56,6 +62,9 @@ const PopularInstructors = () => {
                     </SwiperSlide>)
                 }
             </Swiper>
+            <div className="card-actions  justify-center py-6">
+                <Link to={'/courses'} className="btn btn-error text-white">Show All Trainer </Link>
+            </div>
         </div>
     );
 };

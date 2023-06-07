@@ -22,13 +22,13 @@ const Slider = () => {
         "Train your body and mind with the ancient art of Muay Thai",
     ]
     return (
-        <>
+        <div className='my-10'>
             <Swiper
                 scrollbar={{
                     hide: true,
                 }}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3500,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Scrollbar]}
@@ -40,7 +40,7 @@ const Slider = () => {
                     </SwiperSlide>)
                 }
             </Swiper>
-        </>
+        </div>
     );
 };
 
