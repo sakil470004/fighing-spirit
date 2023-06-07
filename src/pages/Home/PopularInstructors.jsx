@@ -10,14 +10,14 @@ import "swiper/css/pagination";
 
 // import required modules
 import { FreeMode, Pagination } from "swiper";
-import ClassesCard from '../Shared/ClassesCard';
+import InstructorCard from '../Shared/InstructorCard';
 
-const PopularClasses = () => {
-    const [classes, setClasses] = useState([])
+const PopularInstructors = () => {
+    const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch('classes.json')
+        fetch('instructor.json')
             .then(res => res.json())
-            .then(data => setClasses(data))
+            .then(data => setInstructors(data))
     }, [])
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -38,7 +38,7 @@ const PopularClasses = () => {
   
     return (
         <div className='my-10'>
-            <SectionTittle heading={'Popular Courses'} subHeading={'Course You May Find Interesting'}></SectionTittle>
+            <SectionTittle heading={'Skilled Trainer'} subHeading={'Meet Our Highly Skilled Instructor!'}></SectionTittle>
             <Swiper
                 loop={true}
                 slidesPerView={windowWidth>1000 ? 3 : 1}
@@ -51,8 +51,8 @@ const PopularClasses = () => {
                 className="mySwiper"
             >
                 {
-                    classes.map(singleClass => <SwiperSlide key={singleClass.id}>
-                        <ClassesCard singleClass={singleClass}></ClassesCard>
+                    instructors.map(instructor => <SwiperSlide key={instructor.id}>
+                        <InstructorCard instructor={instructor}></InstructorCard>
                     </SwiperSlide>)
                 }
             </Swiper>
@@ -60,4 +60,4 @@ const PopularClasses = () => {
     );
 };
 
-export default PopularClasses;
+export default PopularInstructors;
