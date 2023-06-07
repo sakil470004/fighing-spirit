@@ -32,11 +32,11 @@ const Slider = () => {
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Scrollbar]}
-                className="mySwiper -z-10"
+                className="mySwiper"
             >
                 {
                     images.map((img, index) => <SwiperSlide key={index}>
-                        <SliderCard className='z-0' img={img} des={descriptions[index]}></SliderCard>
+                        <SliderCard  img={img} des={descriptions[index]}></SliderCard>
                     </SwiperSlide>)
                 }
             </Swiper>
