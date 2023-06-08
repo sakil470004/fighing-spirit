@@ -19,17 +19,18 @@ const SocialLogin = () => {
                 // todo : uncomment it after server build
                 console.log(loggedInUser)
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                // fetch('http://localhost:5000/users', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(saveUser)
-                // })
-                //     .then(res => res.json())
-                //     .then(() => {
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                       alert('logged')
                         navigate(from, { replace: true });
-                    // })
+                    })
             })
     }
 

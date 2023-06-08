@@ -23,21 +23,21 @@ console.log(data)
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email }
-                        // fetch('http://localhost:5000/users', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(saveUser)
-                        // })
-                        //     .then(res => res.json())
-                        //     .then(data => {
-                        //         if (data.insertedId) {
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
                                     reset();
                                     alert('crated')
                                     navigate('/');
-                            //     }
-                            // })
+                                }
+                            })
 
 
 
