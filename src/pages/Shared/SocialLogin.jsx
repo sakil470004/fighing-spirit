@@ -17,8 +17,8 @@ const SocialLogin = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 // todo : uncomment it after server build
-                console.log(loggedInUser)
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                // console.log(loggedInUser)
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email}
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {

@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Dashboard from "../Layout/Dashboard";
 import Home from "../Home/Home";
 import Classes from "../Classes/Classes";
 import Instructors from "../Instructors/Instructors";
-import Dashboard from "../Dashboard/Dashboard";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
+import MangeUsers from "../Dashboard/MangeUsers";
 
 export const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
             {
                 path: '/classes',
                 element: <PrivateRoute><Classes></Classes></PrivateRoute>
-            }, 
+            },
             {
                 path: '/instructors',
                 element: <Instructors></Instructors>
@@ -36,8 +37,14 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path:'/dashboard',
-        element:<Dashboard></Dashboard>
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'manageUsers',
+                element: <MangeUsers></MangeUsers>
+            }
+        ]
     }
 
 ]);
