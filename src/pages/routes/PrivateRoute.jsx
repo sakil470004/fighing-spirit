@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
-import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
@@ -14,7 +13,6 @@ const PrivateRoute = ({ children }) => {
     if (user) {
         return children;
     }
-    toast.error("You need To Login First For Current Page")
     return <Navigate to="/login" state={{ from: location }} replace ></Navigate>;
 };
 

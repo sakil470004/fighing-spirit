@@ -1,9 +1,15 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import { FaRegUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProvider';
 const Navbar = () => {
-    const { signIn } = useContext(AuthContext);
+
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then()
+    }
     const navElement = <>
         <li><NavLink className='md:ml-4' to={'/'}>Home</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/classes'}>Courses</NavLink></li>
@@ -22,7 +28,7 @@ const Navbar = () => {
                         {navElement}
                     </ul>
                 </div>
-                <NavLink to={'/'} ><img src={logo} width={100}  alt="" /></NavLink>
+                <NavLink to={'/'} ><img src={logo} width={100} alt="" /></NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -30,7 +36,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <p className="text-3xl"><FaRegUserCircle /></p>
+                {user ? <div className='flex gap-4 items-center justify-center'>
+                    {user?.photoURL ?
+                        <div className="avatar">
+                            <div className="w-14 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </div> :
+                        <p className="text-3xl"><FaRegUserCircle /></p>}
+                    <button className='btn btn-error btn-outline' onClick={handleLogout}>Logout</button>
+                </div>
+                    :
+                    <Link className='btn btn-error' to={'/login'}>Login</Link>
+                }
             </div>
         </div>
     );
