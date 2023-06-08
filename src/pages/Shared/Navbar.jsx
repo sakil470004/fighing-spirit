@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import { FaRegUserCircle } from 'react-icons/fa';
 const Navbar = () => {
+    const { signIn } = useContext(AuthContext);
     const navElement = <>
         <li><NavLink className='md:ml-4' to={'/'}>Home</NavLink></li>
-        <li><NavLink className='md:ml-4' to={'/courses'}>Courses</NavLink></li>
+        <li><NavLink className='md:ml-4' to={'/classes'}>Courses</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/instructors'}>Instructors</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/dashboard'} >Dashboard</NavLink></li>
 

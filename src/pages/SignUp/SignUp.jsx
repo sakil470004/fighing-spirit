@@ -13,7 +13,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-
+console.log(data)
         createUser(data.email, data.password)
             .then(result => {
 
@@ -23,21 +23,21 @@ const SignUp = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email }
-                        fetch('http://localhost:5000/users', {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(saveUser)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.insertedId) {
+                        // fetch('http://localhost:5000/users', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         'content-type': 'application/json'
+                        //     },
+                        //     body: JSON.stringify(saveUser)
+                        // })
+                        //     .then(res => res.json())
+                        //     .then(data => {
+                        //         if (data.insertedId) {
                                     reset();
                                     alert('crated')
                                     navigate('/');
-                                }
-                            })
+                            //     }
+                            // })
 
 
 
@@ -51,8 +51,8 @@ const SignUp = () => {
             <Helmet>
                 <title>Fighting Spirit | Sign Up</title>
             </Helmet>
-            <div className="min-h-screen bg-pink-50 flex items-center justify-center">
-                <div className="mx-auto bg-white p-8 shadow-lg rounded-lg">
+            <div className="my-20 flex items-center justify-center">
+                <div className="w-full md:w-[500px]  mx-auto bg-white p-8 shadow-lg rounded-lg">
                     <h1 className="text-3xl font-bold text-center mb-6">Sign up now!</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-4">
@@ -87,7 +87,7 @@ const SignUp = () => {
                             </label>
                         </div>
                         <div className="mb-6">
-                            <button type="submit" className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Sign Up</button>
+                            <button type="submit" className="w-full py-2 px-4 bg-pink-400 text-white rounded-md hover:bg-pink-600">Sign Up</button>
                         </div>
                     </form>
                     <p className="text-sm text-center">Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link></p>

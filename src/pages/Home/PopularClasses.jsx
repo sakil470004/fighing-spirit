@@ -62,7 +62,7 @@ const PopularClasses = () => {
                 }
             </Swiper>
             <div className="card-actions  justify-center py-6">
-                <Link to={'/courses'} className="btn btn-error text-white">Show All Courses</Link>
+                <Link to={'/classes'} className="btn btn-error text-white">Show All Courses</Link>
             </div>
         </div>
     );

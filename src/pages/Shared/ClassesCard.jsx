@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ClassesCard = ({ singleClass }) => {
+const ClassesCard = ({ singleClass,children }) => {
     const { name,
         price,
         image,
@@ -22,9 +22,7 @@ const ClassesCard = ({ singleClass }) => {
                     <span className='text-xl text-rose-500'><span className='text-black'>Price :</span> {price}</span>
                     <span className='text-xl text-[#EA180B]'>{availableSeats} <span className='text-black'>Seats Available</span></span>
                 </div>
-                {/* <div className="card-actions justify-end">
-                    <button onClick={handleDetails} className="btn btn-error text-white">View Details</button>
-                </div> */}
+                {children}
             </div>
         </div>
     );
