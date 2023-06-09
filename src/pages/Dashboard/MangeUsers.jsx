@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import MangeUsersCard from './MangeUsersCard';
 
 const MangeUsers = () => {
+    const [users, setUsers] = useState([]);
+   
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }, [])
+
+
     return (
-        <div>this manage Users
-            
+        <div className="overflow-x-auto">
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>
+                            <label>
+                                #
+                            </label>
+                        </th>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {users?.map((user, index) =>
+                        <MangeUsersCard user={user} key={index} index={index}></MangeUsersCard>
+                    )
+                    }
+                </tbody>
+            </table>
         </div>
     );
 };

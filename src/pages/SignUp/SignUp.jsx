@@ -13,7 +13,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-console.log(data)
+        console.log(data)
         createUser(data.email, data.password)
             .then(result => {
 
@@ -22,7 +22,7 @@ console.log(data)
 
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email ,role:'student'}
+                        const saveUser = { name: data.name, email: data.email, role: 'student', img: data.photoURL }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
