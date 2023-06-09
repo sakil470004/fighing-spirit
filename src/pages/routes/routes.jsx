@@ -8,6 +8,10 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import MangeUsers from "../Dashboard/MangeUsers";
+import AddedCourses from "../Dashboard/AddedCourses";
+import ManageCourses from "../Dashboard/ManageCourses";
+import SelectedCourses from "../Dashboard/SelectedCourses";
+import ManageAddedCourses from "../Dashboard/ManageAddedCourses";
 
 export const router = createBrowserRouter([
     {
@@ -37,13 +41,27 @@ export const router = createBrowserRouter([
         ]
     },
     {
-        path: '/dashboard',
+        path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
+        
             {
                 path: 'manageUsers',
                 element: <MangeUsers></MangeUsers>
-            }
+            }, 
+            {
+                path:'manageAddedCourses',
+                element:<ManageAddedCourses></ManageAddedCourses>
+            },{
+                path:'manageCourses',
+                element:<ManageCourses></ManageCourses>
+            },{
+                path:'selectedCourses',
+                element:<SelectedCourses></SelectedCourses>
+            },{
+                path:'addedCourses',
+                element:<AddedCourses></AddedCourses>
+            },
         ]
     }
 

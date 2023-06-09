@@ -6,6 +6,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true);
+    const [error,setError]=useState('')
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -15,11 +16,11 @@ const Login = () => {
 
 
     const handleLogin = event => {
+        setError('')
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
         signIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -27,6 +28,12 @@ const Login = () => {
                 alert('success')
                 navigate(from, { replace: true });
             })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(`${errorCode} ${errorMessage}`)
+                // ..
+              });
     }
 
 
@@ -51,6 +58,7 @@ const Login = () => {
                                 <a href="#" className="text-blue-500 hover:underline">Forgot password?</a>
                             </label>
                         </div>
+                        {error && <p className='text-error'>{error}</p>}
                         <div className="mb-6">
                             <button type="submit" className="w-full py-2 px-4 bg-pink-400 text-white rounded-md hover:bg-pink-600">Login</button>
                         </div>
