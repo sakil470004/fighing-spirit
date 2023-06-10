@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const ManageCourseModal = ({ selected }) => {
+const ManageCourseModal = ({ selected ,classes,setClasses}) => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
@@ -12,7 +12,7 @@ const ManageCourseModal = ({ selected }) => {
         } = data
         const courseData = { name: selected?.name, price: parseInt(price), image, availableSeats: parseInt(availableSeats), instructorName: selected?.instructorName, instructorEmail: selected?.instructorEmail, status: selected.status, _id: selected._id }
         console.log(courseData)
-        fetch('http://localhost:5000/updateCourse', {
+        fetch(`http://localhost:5000/updateCourse/${selected._id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -22,17 +22,20 @@ const ManageCourseModal = ({ selected }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.deletedCount > 0) {
-                    const remaining = classes.filter(c => c._id !== _id)
-                    setClasses(courseData, ...remaining)
+                if (data.modifiedCount > 0) {
+                    const remaining = classes.filter(c => c._id !== selected._id)
+                    setClasses([courseData, ...remaining])
                     alert('Updated')
+
                 }
             })
     }
     return (
         <dialog id="my_modal_1" className="modal">
 
+
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg  mx-auto bg-white rounded-lg shadow-md p-6">
+                <button htmlFor="my_modal_1" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 <h2 className="text-2xl font-bold mb-4">Update Course</h2>
                 <div className="mb-4">
                     <label htmlFor="name" className="block mb-2">Course Name</label>
@@ -57,6 +60,7 @@ const ManageCourseModal = ({ selected }) => {
                 <input className='btn btn-outline btn-error' type="submit" />
 
             </form>
+          
 
         </dialog>
     );

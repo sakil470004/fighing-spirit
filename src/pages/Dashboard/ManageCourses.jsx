@@ -48,7 +48,7 @@ const ManageCourses = () => {
 
     return (<div>
         {/* Open the modal using ID.showModal() method */}
-       <ManageCourseModal selected={selected} ></ManageCourseModal>
+       <ManageCourseModal selected={selected} classes={classes} setClasses={setClasses} ></ManageCourseModal>
         <div className="overflow-x-auto">
             <SectionTittle heading={'Manage Your Course'} subHeading={'Edit Or Delete Course'}></SectionTittle>
             <table className="table">
