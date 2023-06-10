@@ -4,23 +4,27 @@ import ClassesCard from '../Shared/ClassesCard';
 
 const Classes = () => {
     const [classes, setClasses] = useState([])
+    // only accepted are showed here
+    const currentStatus = 'accepted';
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch(`http://localhost:5000/classes?status=${currentStatus}`)
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
 
-    return(
+    return (
         <div className='my-20'>
             <SectionTittle heading={'All Training Courses'}></SectionTittle>
             <div className='grid md:grid-cols-3 gap-6'>
                 {
-                    classes.map(singleClass => <ClassesCard key={singleClass._id} singleClass={singleClass} currentStatus='accepted'>
-                        
+                    classes.map(singleClass => {
+                        return( <ClassesCard key={singleClass._id} singleClass={singleClass}>
+
                             <button className="btn btn-error text-white mt-4">Select Course</button>
-                        
-                    </ClassesCard>
-                    )
+
+                        </ClassesCard>)
+
+                    })
                 }
             </div>
         </div>

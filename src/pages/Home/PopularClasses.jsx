@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 const PopularClasses = () => {
     const [classes, setClasses] = useState([])
     useEffect(() => {
-        fetch('classes.json')
+        fetch('http://localhost:5000/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
@@ -56,7 +56,7 @@ const PopularClasses = () => {
                 className="mySwiper"
             >
                 {
-                    classes.map(singleClass => <SwiperSlide key={singleClass.id}>
+                    classes?.slice(0,6)?.map(singleClass => <SwiperSlide key={singleClass._id}>
                         <ClassesCard singleClass={singleClass}></ClassesCard>
                     </SwiperSlide>)
                 }

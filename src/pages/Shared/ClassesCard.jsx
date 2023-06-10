@@ -1,19 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ClassesCard = ({ singleClass,children , currentStatus }) => {
+const ClassesCard = ({ singleClass,children  }) => {
     const { name,
         price,
         image,
         instructorName,
         availableSeats,
-        status
     } = singleClass
     const navigate = useNavigate()
     const handleDetails = () => {
         navigate(`/toyDetails/${_id}`)
     }
-    return (currentStatus  && currentStatus!==status) ? <></>:  (
+    return  (
         <div  className="card card-compact h-[650px] bg-base-100 shadow-xl my-2 py-4">
             <figure><img className='object-cover' src={image} alt="fight" /></figure>
             <div className="card-body">

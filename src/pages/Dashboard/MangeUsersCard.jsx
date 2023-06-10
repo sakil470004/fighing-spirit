@@ -41,17 +41,13 @@ const MangeUsersCard = ({ user, index }) => {
                 {user?.email}
             </td>
             <td>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Change The Role</span>
 
-                    </label>
-                    <select onChange={handleRoleChange} className="select select-bordered" defaultValue={user?.role}>
-                        {roles.map((demoRole, index) =>
-                            <option disabled={demoRole === user?.role} value={demoRole} key={index}>{demoRole}</option>
-                        )}
-                    </select>
-                </div>
+                <select onChange={handleRoleChange} className="select select-bordered" defaultValue={user?.role}>
+                    {roles.map((demoRole, index) =>
+                        <option disabled={demoRole === user?.role} value={demoRole} key={index}>{demoRole}</option>
+                    )}
+                </select>
+
             </td>
         </tr>
     );
