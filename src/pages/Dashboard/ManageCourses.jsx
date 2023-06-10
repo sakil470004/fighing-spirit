@@ -2,17 +2,19 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import ManageCoursesCard from './ManageCoursesCard';
 import SectionTittle from '../Shared/SectionTittle';
-import { useQuery } from '@tanstack/react-query';
+import ManageCourseModal from './ManageCourseModal';
+// import { useQuery } from '@tanstack/react-query';
 
 const ManageCourses = () => {
     const [classes, setClasses] = useState([])
-    const [change, setChange] = (false)
+    const [change, setChange] = useState(false)
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
         fetch(`http://localhost:5000/classes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setClasses(data))
-    }, [change])
+    }, [])
     // const {data: classes = [], isLoading: loading, refetch} = useQuery({
     //     queryKey: ['classes'],
     //     queryFn: async() => {
@@ -23,8 +25,30 @@ const ManageCourses = () => {
     // if (loading) {
     //     return <p className='text-2xl'>Loading....</p>
     // }
-    const newChange={change,setChange}
-    return (
+    const handleDelete = (_id) => {
+        fetch(`http://localhost:5000/deleteCourse/${_id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    const remaining = classes.filter(c => c._id !== _id)
+                    setClasses(remaining)
+                    console.log(remaining, classes)
+                    alert('deleted')
+                }
+            })
+    }
+    const [selected,setSelected]=useState({})
+    const showUpdater = (data) => {
+        window.my_modal_1.showModal()
+        setSelected(data)
+       
+    }
+
+    return (<div>
+        {/* Open the modal using ID.showModal() method */}
+       <ManageCourseModal selected={selected} ></ManageCourseModal>
         <div className="overflow-x-auto">
             <SectionTittle heading={'Manage Your Course'} subHeading={'Edit Or Delete Course'}></SectionTittle>
             <table className="table">
@@ -48,13 +72,14 @@ const ManageCourses = () => {
                 <tbody>
 
                     {
-                        classes.map(((course, index) => <ManageCoursesCard key={course._id} course={course} index={index} newChange={newChange}></ManageCoursesCard>))
-          }
-            </tbody>
+                        classes?.map(((course, index) => <ManageCoursesCard key={course._id} course={course} index={index} handleDelete={handleDelete} showUpdater={showUpdater}></ManageCoursesCard>))
+                    }
+                </tbody>
 
 
-        </table>
-     </div>
+            </table>
+        </div>
+    </div>
     );
 };
 

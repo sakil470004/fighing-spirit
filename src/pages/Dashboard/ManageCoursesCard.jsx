@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ManageCoursesCard = ({ course, index ,newChange}) => {
+const ManageCoursesCard = ({ course, index , handleDelete,showUpdater}) => {
     const { name,
         price,
         image,
@@ -8,18 +8,8 @@ const ManageCoursesCard = ({ course, index ,newChange}) => {
         availableSeats,
         _id, status
     } = course
-    const handleDelete = () => {
-        fetch(`http://localhost:5000/deleteCourse/${_id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 1) {
-                newChange?.setChange(!newChange?.change)
-                    alert('deleted')
-                }
-            })
-    }
+   
+   
     return (
         <tr>
             <th>
@@ -47,7 +37,8 @@ const ManageCoursesCard = ({ course, index ,newChange}) => {
             <td>
                 <p className={`badge text-white ${status === 'accepted' ? 'badge-success' : 'badge-error'}`}>{status}</p>
             </td>
-            <td><button className='badge badge-error text-white' onClick={handleDelete}>Delete</button> <button className='badge badge-info text-white'>Edit</button></td>
+            <td className='flex flex-col gap-3 w-full h-full justify-center items-center'><button className='badge badge-error text-white' onClick={()=>handleDelete(_id)}>Delete</button> 
+            <button onClick={()=>showUpdater(course)} className='badge badge-info text-white'>Edit</button></td>
         </tr>
     );
 };

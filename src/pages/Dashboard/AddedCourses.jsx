@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider';
 
 const AddedCourses = () => {
-    const { register,reset, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register,reset, handleSubmit,  formState: { errors } } = useForm();
     const { user } = useContext(AuthContext)
 
     const onSubmit = data => {
@@ -23,10 +23,9 @@ const AddedCourses = () => {
         })
             .then(res => res.json())
             .then((data) => {
-                console.log(data)
                 if (data.insertedId) {
                     alert('Added')
-                    reset()
+                    // reset()
                 }
 
             })
