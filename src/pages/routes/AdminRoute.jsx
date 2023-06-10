@@ -6,6 +6,9 @@ import useRole from '../../hooks/useRole';
 
 const AdminRoute = ({ children }) => {
     const {role}=useRole()
+   
+
+    console.log(role)
     const { user,loading } = useContext(AuthContext);
     const location = useLocation();
 
