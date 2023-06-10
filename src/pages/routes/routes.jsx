@@ -12,6 +12,11 @@ import AddedCourses from "../Dashboard/AddedCourses";
 import ManageCourses from "../Dashboard/ManageCourses";
 import SelectedCourses from "../Dashboard/SelectedCourses";
 import ManageAddedCourses from "../Dashboard/ManageAddedCourses";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import DashboardHome from "../Dashboard/DashboardHome";
+import Dashbaord from "../Layout/Dashboard";
+import MyEnrollClasses from "../Dashboard/MyEnrollClasses";
 
 export const router = createBrowserRouter([
     {
@@ -42,25 +47,34 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        element: <PrivateRoute><Dashbaord></Dashbaord></PrivateRoute>,
         children: [
-        
+            {
+                path:'home',
+                element:<DashboardHome></DashboardHome>
+            },
             {
                 path: 'manageUsers',
-                element: <MangeUsers></MangeUsers>
-            }, 
+                element:  <MangeUsers></MangeUsers>
+            },
             {
-                path:'manageAddedCourses',
-                element:<ManageAddedCourses></ManageAddedCourses>
-            },{
-                path:'manageCourses',
-                element:<ManageCourses></ManageCourses>
-            },{
-                path:'selectedCourses',
-                element:<SelectedCourses></SelectedCourses>
-            },{
-                path:'addedCourses',
-                element:<AddedCourses></AddedCourses>
+                path: 'manageAddedCourses',
+                element: <AdminRoute><ManageAddedCourses></ManageAddedCourses></AdminRoute>
+            }, {
+                path: 'manageCourses',
+                element: <InstructorRoute><ManageCourses></ManageCourses></InstructorRoute>
+            },
+            {
+                path: 'addedCourses',
+                element: <InstructorRoute> <AddedCourses></AddedCourses></InstructorRoute>
+            },
+            {
+                path: 'selectedCourses',
+                element: <PrivateRoute><SelectedCourses></SelectedCourses></PrivateRoute>
+            },
+            {
+                path: 'myEnrollClass',
+                element: <PrivateRoute><MyEnrollClasses></MyEnrollClasses></PrivateRoute>
             },
         ]
     }

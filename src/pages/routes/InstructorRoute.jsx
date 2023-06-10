@@ -4,7 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import useRole from '../../hooks/useRole';
 
 
-const AdminRoute = ({ children }) => {
+const InstructorRoute = ({ children }) => {
     const {role}=useRole()
     const { user,loading } = useContext(AuthContext);
     const location = useLocation();
@@ -13,10 +13,10 @@ const AdminRoute = ({ children }) => {
         return <div className='flex items-center h-[600px] justify-center'>
             <progress className="progress w-56"></progress></div>
     }
-    if (user && role === 'admin') {
+    if (user && role === 'instructor') {
         return children;
     }
     return <Navigate to="/login" state={{ from: location }} replace ></Navigate>;
 };
 
-export default AdminRoute;
+export default InstructorRoute;

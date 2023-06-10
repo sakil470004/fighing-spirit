@@ -49,11 +49,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/userRole?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setRole(data.role))
-    }, [])
     const authInfo = {
         user,
         loading,
@@ -62,7 +57,7 @@ const AuthProvider = ({ children }) => {
         logOut,
         googleLogin,
         updateUserProfile,
-        role,
+ 
     }
 
     return (

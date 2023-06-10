@@ -1,8 +1,10 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import logo from './../../assets/logo.png'
+import useRole from '../../hooks/useRole';
 
 const Dashbaord = () => {
+  const { role } = useRole()
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -18,13 +20,25 @@ const Dashbaord = () => {
           {/* Sidebar content here */}
           <img src={logo} alt="" />
           {/* admin */}
-          <li><NavLink to={'/dashboard/manageUsers'}>Manage Users</NavLink></li>
-          <li><NavLink to={'/dashboard/manageAddedCourses'}>Manage Added Courses</NavLink></li>
+          {role === 'admin' &&<>
+              <li><NavLink to={'/dashboard/manageUsers'}>Manage Users</NavLink></li>
+              <li><NavLink to={'/dashboard/manageAddedCourses'}>Manage Added Courses</NavLink></li>
+            </>
+          }
           {/* instructor */}
-          <li><NavLink to={'/dashboard/addedCourses'}>Added Courses</NavLink></li>
-          <li><NavLink to={'/dashboard/manageCourses'}>Manage Courses</NavLink></li>
+          {
+            role === 'instructor' &&<>
+              <li><NavLink to={'/dashboard/addedCourses'}>Added Courses</NavLink></li>
+              <li><NavLink to={'/dashboard/manageCourses'}>Manage Courses</NavLink></li>
+            </>
+          }
           {/* student */}
-          <li><NavLink to={'/dashboard/selectedCourses'}>Selected Course</NavLink></li>
+          {
+            role === 'student' &&<>
+              <li><NavLink to={'/dashboard/selectedCourses'}>Selected Course</NavLink></li>
+              <li><NavLink to={'/dashboard/myEnrollClass'}>My Enroll Classes</NavLink></li>
+            </>
+          }
           <div className='divider'></div>
           <li><NavLink to={'/'}>Home</NavLink></li>
           <li><NavLink to={'/classes'}>Courses</NavLink></li>

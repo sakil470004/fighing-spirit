@@ -14,7 +14,7 @@ const Navbar = () => {
         <li><NavLink className='md:ml-4' to={'/'}>Home</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/classes'}>Courses</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/instructors'}>Instructors</NavLink></li>
-        <li><NavLink className='md:ml-4' to={'/dashboard'} >Dashboard</NavLink></li>
+        <li><NavLink className='md:ml-4' to={'/dashboard/home'} >Dashboard</NavLink></li>
 
     </>
     return (
