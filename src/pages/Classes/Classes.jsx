@@ -10,12 +10,12 @@ const Classes = () => {
             .then(data => setClasses(data))
     }, [])
 
-    return (
+    return(
         <div className='my-20'>
             <SectionTittle heading={'All Training Courses'}></SectionTittle>
             <div className='grid md:grid-cols-3 gap-6'>
                 {
-                    classes.map(singleClass => <ClassesCard key={singleClass._id} singleClass={singleClass}>
+                    classes.map(singleClass => <ClassesCard key={singleClass._id} singleClass={singleClass} currentStatus='accepted'>
                         
                             <button className="btn btn-error text-white mt-4">Select Course</button>
                         
