@@ -37,6 +37,7 @@ const Dashbaord = () => {
             role === 'student' &&<>
               <li><NavLink to={'/dashboard/selectedCourses'}>Selected Course</NavLink></li>
               <li><NavLink to={'/dashboard/myEnrollClass'}>My Enroll Classes</NavLink></li>
+              <li><NavLink to={'/dashboard/paymentHistory'}>Payment History</NavLink></li>
             </>
           }
           <div className='divider'></div>

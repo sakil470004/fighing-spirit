@@ -2,34 +2,29 @@ import { useContext, useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import './CheckoutForm.css'
 import { AuthContext } from "../../../providers/AuthProvider";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const CheckoutForm = ({ cart, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useContext(AuthContext)
-    const [axiosSecure] = useAxiosSecure()
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+    const [axiosSecure] = useAxiosSecure()
+
 
     useEffect(() => {
         if (price > 0) {
-            fetch('http://localhost:5000/create-payment-intent', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ price })
-            })
-                .then(res => res.json())
-                .then((data) => {
-                    console.log(data.clientSecret)
-                    setClientSecret(data.clientSecret);
+            axiosSecure.post('/create-payment-intent', { price })
+                .then(res => {
+                    console.log(res.data.clientSecret)
+                    setClientSecret(res.data.clientSecret);
                 })
         }
-    }, [price])
+    }, [price, axiosSecure])
 
 
     const handleSubmit = async (event) => {
@@ -92,13 +87,22 @@ const CheckoutForm = ({ cart, price }) => {
                 status: 'service pending',
                 curseDetails:cart 
             }
-            axiosSecure.post('/payments', payment)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.result.insertedId) {
-                        // display confirm
+            fetch('http://localhost:5000/payments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    if (data.result.insertedId) {
+                        alert('Completed')
+                        // reset()
                     }
+    
                 })
+           
         }
 
 

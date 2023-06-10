@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 const useRole = () => {
-    const [role, setRole] = useState([]);
+    const [role, setRole] = useState('');
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext)
     useEffect(() => {
