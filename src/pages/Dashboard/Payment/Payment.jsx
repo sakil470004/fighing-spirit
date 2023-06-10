@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import SectionTittle from "../../Shared/SectionTittle";
 
 // TODO: provide publishable Key
-// const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
     let { paymentId } = useParams();
     const [currentClass, setClass] = useState({});
@@ -23,7 +23,7 @@ const Payment = () => {
             <SectionTittle subHeading="please process" heading="Payment"></SectionTittle>
             {/* <h2 className="text-3xl"></h2> */}
             <Elements stripe={stripePromise}>
-                <CheckoutForm cart={cart} price={price}></CheckoutForm>
+                <CheckoutForm cart={currentClass} price={currentClass.price}></CheckoutForm>
             </Elements>
         </div>
     );

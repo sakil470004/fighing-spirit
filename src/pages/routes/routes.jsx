@@ -17,6 +17,7 @@ import InstructorRoute from "./InstructorRoute";
 import DashboardHome from "../Dashboard/DashboardHome";
 import Dashbaord from "../Layout/Dashboard";
 import MyEnrollClasses from "../Dashboard/MyEnrollClasses";
+import Payment from "../Dashboard/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
             {
                 path: 'myEnrollClass',
                 element: <PrivateRoute><MyEnrollClasses></MyEnrollClasses></PrivateRoute>
+            }, 
+            {
+                path: '/dashboard/payment/:paymentId',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
             },
         ]
     }
