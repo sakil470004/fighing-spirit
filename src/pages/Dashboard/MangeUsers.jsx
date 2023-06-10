@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MangeUsersCard from './MangeUsersCard';
+import SectionTittle from '../Shared/SectionTittle';
 
 const MangeUsers = () => {
     const [users, setUsers] = useState([]);
@@ -13,6 +14,7 @@ const MangeUsers = () => {
 
     return (
         <div className="overflow-x-auto">
+        <SectionTittle heading={'Manage User Role'}></SectionTittle>
             <table className="table">
                 {/* head */}
                 <thead>

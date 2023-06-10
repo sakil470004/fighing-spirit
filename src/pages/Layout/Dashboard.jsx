@@ -6,7 +6,7 @@ const Dashbaord = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content my-20 mx-4">
+      <div className="drawer-content my-0 mx-4">
         {/* Page content here */}
         <Outlet />
         <label htmlFor="my-drawer-2" className="btn btn-error drawer-button lg:hidden absolute top-4 left-4">|||</label>
@@ -14,7 +14,7 @@ const Dashbaord = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content py-10">
+        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content my-2">
           {/* Sidebar content here */}
           <img src={logo} alt="" />
           {/* admin */}
@@ -27,7 +27,7 @@ const Dashbaord = () => {
           <li><NavLink to={'/dashboard/selectedCourses'}>Selected Course</NavLink></li>
           <div className='divider'></div>
           <li><NavLink to={'/'}>Home</NavLink></li>
-          <li><NavLink to={'/classes'}>Classes</NavLink></li>
+          <li><NavLink to={'/classes'}>Courses</NavLink></li>
           <li><NavLink to={'/instructors'}>Instructors</NavLink></li>
         </ul>
 

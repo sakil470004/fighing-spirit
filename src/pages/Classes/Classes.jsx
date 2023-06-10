@@ -15,7 +15,7 @@ const Classes = () => {
             <SectionTittle heading={'All Training Courses'}></SectionTittle>
             <div className='grid md:grid-cols-3 gap-6'>
                 {
-                    classes.map(singleClass => <ClassesCard key={singleClass.id} singleClass={singleClass}>
+                    classes.map(singleClass => <ClassesCard key={singleClass._id} singleClass={singleClass}>
                         
                             <button className="btn btn-error text-white mt-4">Select Course</button>
                         

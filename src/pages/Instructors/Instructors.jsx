@@ -15,7 +15,7 @@ const Instructors = () => {
             <SectionTittle heading={'Trainers'} subHeading={'Trainer We Have'}></SectionTittle>
             <div className='grid md:grid-cols-3 gap-6'>
                 {
-                    instructors.map(instructor => <InstructorCard key={instructor.id} instructor={instructor}></InstructorCard>
+                    instructors.map(instructor => <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>
                     )
                 }
             </div>
