@@ -11,6 +11,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [role, setRole] = useState();
 
     const googleLogin = () => {
         return signInWithPopup(auth, googleProvider)
@@ -21,7 +22,6 @@ const AuthProvider = ({ children }) => {
         });
     }
 
- 
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
@@ -49,6 +49,11 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/userRole?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setRole(data.role))
+    }, [])
     const authInfo = {
         user,
         loading,
@@ -56,7 +61,8 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         googleLogin,
-        updateUserProfile,  
+        updateUserProfile,
+        role,
     }
 
     return (

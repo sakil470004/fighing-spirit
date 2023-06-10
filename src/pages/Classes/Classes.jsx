@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import SectionTittle from '../Shared/SectionTittle';
 import ClassesCard from '../Shared/ClassesCard';
+import { AuthContext } from '../../providers/AuthProvider';
+
 
 const Classes = () => {
     const [classes, setClasses] = useState([])
+    const {role}=useContext(AuthContext)
     // only accepted are showed here
     const currentStatus = 'accepted';
     useEffect(() => {
@@ -11,7 +14,7 @@ const Classes = () => {
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
-
+console.log(role)
     return (
         <div className='my-20'>
             <SectionTittle heading={'All Training Courses'}></SectionTittle>
@@ -20,7 +23,7 @@ const Classes = () => {
                     classes.map(singleClass => {
                         return( <ClassesCard key={singleClass._id} singleClass={singleClass}>
 
-                            <button className="btn btn-error text-white mt-4">Select Course</button>
+                            <button disabled={singleClass.availableSeats===0 || role!=='student'} className="btn btn-error text-white mt-4">Select Course</button>
 
                         </ClassesCard>)
 
