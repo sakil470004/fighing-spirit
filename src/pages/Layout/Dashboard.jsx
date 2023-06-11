@@ -6,7 +6,7 @@ import useRole from '../../hooks/useRole';
 const Dashbaord = () => {
   const { role } = useRole()
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="dashboardCSS drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content my-0 mx-4">
         {/* Page content here */}
@@ -14,12 +14,13 @@ const Dashbaord = () => {
         <label htmlFor="my-drawer-2" className="btn btn-error drawer-button lg:hidden absolute top-4 left-4">|||</label>
 
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side bg-rose-100">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content my-2">
           {/* Sidebar content here */}
           <img src={logo} alt="" />
           {/* admin */}
+           <li><NavLink to={'/dashboard/home'}>Dashboard Home</NavLink></li>
           {role === 'admin' &&<>
               <li><NavLink to={'/dashboard/manageUsers'}>Manage Users</NavLink></li>
               <li><NavLink to={'/dashboard/manageAddedCourses'}>Manage Added Courses</NavLink></li>

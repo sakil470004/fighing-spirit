@@ -35,6 +35,7 @@ const ManageAddedCoursesCard = ({ course, index }) => {
                 </label>
             </th>
             <td>
+            
                 <div className="avatar">
                     <div className="mask mask-squircle w-16 h-16">
                         <img src={image} />

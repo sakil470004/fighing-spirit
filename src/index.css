@@ -9,6 +9,22 @@
 .nav-bg{
     background-color: #030408;
 } */
-/* .mySwiper>*{
-z-index: -100;
-} */
+.dashboardCSS li a{
+    margin: 2px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color:rgba(134, 86, 86, 0.67);
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.dashboardCSS li:hover {
+    background-color: rgba(40, 3, 3, 0.761);
+  }
+  
+  .dashboardCSS li a:active {
+    background-color: rgb(103, 10, 10);
+  }
