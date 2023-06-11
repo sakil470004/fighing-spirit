@@ -12,9 +12,9 @@ const useRole = () => {
                 setRole(data.role);
                 setLoading(false);
             });
-    }, [])
+    }, [user])
 
-return {role} 
+return {role,loading} 
 }
 
 export default useRole

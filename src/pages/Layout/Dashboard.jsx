@@ -2,6 +2,13 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import useRole from '../../hooks/useRole';
+import { AiOutlineHome ,AiOutlineUsergroupDelete} from "react-icons/ai";
+import { GrSelect } from "react-icons/gr";
+import { GiTeacher } from "react-icons/gi";
+import { SiGoogleclassroom } from "react-icons/si";
+import { BiImageAdd ,BiHistory} from "react-icons/bi";
+import { TbArrowsJoin2 } from "react-icons/tb";
+import { MdFlightClass } from "react-icons/md";
 
 const Dashbaord = () => {
   const { role } = useRole()
@@ -20,31 +27,31 @@ const Dashbaord = () => {
           {/* Sidebar content here */}
           <img src={logo} alt="" />
           {/* admin */}
-           <li><NavLink to={'/dashboard/home'}>Dashboard Home</NavLink></li>
+           <li><NavLink to={'/dashboard/home'}><AiOutlineHome/> Dashboard Home</NavLink></li>
           {role === 'admin' &&<>
-              <li><NavLink to={'/dashboard/manageUsers'}>Manage Users</NavLink></li>
-              <li><NavLink to={'/dashboard/manageAddedCourses'}>Manage Added Courses</NavLink></li>
+              <li><NavLink to={'/dashboard/manageUsers'}><AiOutlineUsergroupDelete/>Manage Users</NavLink></li>
+              <li><NavLink to={'/dashboard/manageAddedCourses'}><SiGoogleclassroom/>Manage Added Courses</NavLink></li>
             </>
           }
           {/* instructor */}
           {
             role === 'instructor' &&<>
-              <li><NavLink to={'/dashboard/addedCourses'}>Added Courses</NavLink></li>
-              <li><NavLink to={'/dashboard/manageCourses'}>Manage Courses</NavLink></li>
+              <li><NavLink to={'/dashboard/addedCourses'}><BiImageAdd/>Added Courses</NavLink></li>
+              <li><NavLink to={'/dashboard/manageCourses'}><SiGoogleclassroom/>Manage Courses</NavLink></li>
             </>
           }
           {/* student */}
           {
             role === 'student' &&<>
-              <li><NavLink to={'/dashboard/selectedCourses'}>Selected Course</NavLink></li>
-              <li><NavLink to={'/dashboard/myEnrollClass'}>My Enroll Classes</NavLink></li>
-              <li><NavLink to={'/dashboard/paymentHistory'}>Payment History</NavLink></li>
+              <li><NavLink to={'/dashboard/selectedCourses'}><GrSelect/>Selected Course</NavLink></li>
+              <li><NavLink to={'/dashboard/myEnrollClass'}><TbArrowsJoin2/>My Enroll Classes</NavLink></li>
+              <li><NavLink to={'/dashboard/paymentHistory'}><BiHistory/>Payment History</NavLink></li>
             </>
           }
           <div className='divider'></div>
-          <li><NavLink to={'/'}>Home</NavLink></li>
-          <li><NavLink to={'/classes'}>Courses</NavLink></li>
-          <li><NavLink to={'/instructors'}>Instructors</NavLink></li>
+          <li><NavLink to={'/'}><AiOutlineHome/> Home</NavLink></li>
+          <li><NavLink to={'/classes'}><MdFlightClass/>Courses</NavLink></li>
+          <li><NavLink to={'/instructors'}><GiTeacher/>Instructors</NavLink></li>
         </ul>
 
       </div>

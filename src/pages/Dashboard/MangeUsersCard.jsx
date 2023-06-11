@@ -42,7 +42,7 @@ const MangeUsersCard = ({ user, index }) => {
             </td>
             <td>
 
-                <select onChange={handleRoleChange} className="select select-bordered" defaultValue={user?.role}>
+                <select  onChange={handleRoleChange} className="select select-bordered max-w-sm" defaultValue={user?.role}>
                     {roles.map((demoRole, index) =>
                         <option disabled={demoRole === user?.role} value={demoRole} key={index}>{demoRole}</option>
                     )}
