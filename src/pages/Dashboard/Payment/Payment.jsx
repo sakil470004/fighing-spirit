@@ -12,7 +12,7 @@ const Payment = () => {
     let { paymentId } = useParams();
     const [currentClass, setClass] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/singleSelectedClass/${paymentId}`)
+        fetch(`https://fighting-spirit-server.vercel.app/singleSelectedClass/${paymentId}`)
         .then(res=>res.json())
         .then(data=>setClass(data))
     }, [])

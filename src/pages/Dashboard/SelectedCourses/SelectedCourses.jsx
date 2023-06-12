@@ -7,7 +7,7 @@ const SelectedCourses = () => {
     const [classes, setClasses] = useState([])
     const { user } = useContext(AuthContext)
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/selectedClass/${id}`,{
+        fetch(`https://fighting-spirit-server.vercel.app/selectedClass/${id}`,{
             method:'DELETE'
         })
         .then(res => res.json())
@@ -20,7 +20,7 @@ const SelectedCourses = () => {
         })
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/selectedClass/${user.email}`)
+        fetch(`https://fighting-spirit-server.vercel.app/selectedClass/${user.email}`)
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])

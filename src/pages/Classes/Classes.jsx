@@ -16,7 +16,7 @@ const Classes = () => {
     // only accepted are showed here
     const currentStatus = 'accepted';
     useEffect(() => {
-        fetch(`http://localhost:5000/classes?status=${currentStatus}`)
+        fetch(`https://fighting-spirit-server.vercel.app/classes?status=${currentStatus}`)
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
@@ -26,7 +26,7 @@ const Classes = () => {
         const newData = { studentEmail: user.email, ...rest }
         // console.log(newData)
 
-        fetch('http://localhost:5000/selectedClass', {
+        fetch('https://fighting-spirit-server.vercel.app/selectedClass', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

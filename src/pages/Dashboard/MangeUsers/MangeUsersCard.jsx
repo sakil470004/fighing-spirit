@@ -4,7 +4,7 @@ const MangeUsersCard = ({ user, index }) => {
     const handleRoleChange = (e) => {
         const currentRole = e.target.value;
         const editedRole = { role: currentRole }
-        fetch(`http://localhost:5000/adminRole/${user._id}`, {
+        fetch(`https://fighting-spirit-server.vercel.app/adminRole/${user._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

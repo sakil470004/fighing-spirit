@@ -19,7 +19,7 @@ const SocialLogin = () => {
                 // todo : uncomment it after server build
                 // console.log(loggedInUser)
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email,role:'student',img:loggedInUser?.photoURL}
-                fetch('http://localhost:5000/users', {
+                fetch('https://fighting-spirit-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

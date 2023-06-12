@@ -7,7 +7,7 @@ const ManageAddedCourses = () => {
     // only accepted are showed here
     // const currentStatus = 'accepted';
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://fighting-spirit-server.vercel.app/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])

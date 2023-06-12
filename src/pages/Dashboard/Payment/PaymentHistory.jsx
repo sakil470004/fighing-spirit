@@ -9,7 +9,7 @@ const PaymentHistory = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/paymentHistory/${user?.email}`)
+        fetch(`https://fighting-spirit-server.vercel.app/paymentHistory/${user?.email}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [])

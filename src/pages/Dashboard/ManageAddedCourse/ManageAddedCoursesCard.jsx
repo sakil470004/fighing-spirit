@@ -12,7 +12,7 @@ const ManageAddedCoursesCard = ({ course, index }) => {
      const handleStatusChange = (e) => {
         const currentStatus = e.target.value;
         const editedStatus = { status: currentStatus }
-        fetch(`http://localhost:5000/courseStatus/${_id}`, {
+        fetch(`https://fighting-spirit-server.vercel.app/courseStatus/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

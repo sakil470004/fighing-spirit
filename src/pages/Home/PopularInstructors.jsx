@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 const PopularInstructors = () => {
     const [instructors, setInstructors] = useState([])
     useEffect(() => {
-        fetch('instructor.json')
+        fetch('https://fighting-spirit-server.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setInstructors(data))
     }, [])
@@ -57,7 +57,7 @@ const PopularInstructors = () => {
                 className="mySwiper"
             >
                 {
-                    instructors.map(instructor => <SwiperSlide key={instructor.id}>
+                    instructors?.slice(0,6)?.map(instructor => <SwiperSlide key={instructor.id}>
                         <InstructorCard instructor={instructor}></InstructorCard>
                     </SwiperSlide>)
                 }

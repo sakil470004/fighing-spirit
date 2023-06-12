@@ -12,7 +12,7 @@ const ManageCourseModal = ({ selected ,classes,setClasses}) => {
         } = data
         const courseData = { name: selected?.name, price: parseInt(price), image, availableSeats: parseInt(availableSeats), instructorName: selected?.instructorName, instructorEmail: selected?.instructorEmail, status: selected.status, _id: selected._id }
         console.log(courseData)
-        fetch(`http://localhost:5000/updateCourse/${selected._id}`, {
+        fetch(`https://fighting-spirit-server.vercel.app/updateCourse/${selected._id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

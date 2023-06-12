@@ -15,7 +15,7 @@ const AddedCourses = () => {
             availableSeats
         } = data
         const courseData = { name, price: parseInt(price), image, availableSeats: parseInt(availableSeats), instructorName: user?.displayName, instructorEmail: user?.email ,status:'pending'}
-        fetch('http://localhost:5000/addCourse', {
+        fetch('https://fighting-spirit-server.vercel.app/addCourse', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
