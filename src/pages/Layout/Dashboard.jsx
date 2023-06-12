@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import useRole from '../../hooks/useRole';
-import { AiOutlineHome ,AiOutlineUsergroupDelete} from "react-icons/ai";
+import { AiOutlineHome,AiOutlineLogout ,AiOutlineUsergroupDelete} from "react-icons/ai";
 import { GrSelect } from "react-icons/gr";
 import { GiTeacher } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
@@ -56,6 +56,7 @@ const Dashbaord = () => {
           <li><NavLink to={'/'}><AiOutlineHome/> Home</NavLink></li>
           <li><NavLink to={'/classes'}><MdFlightClass/>Courses</NavLink></li>
           <li><NavLink to={'/instructors'}><GiTeacher/>Instructors</NavLink></li>
+          <p ><button className='btn btn-error w-full' ><AiOutlineLogout/> Log out</button></p>
         </ul>
 
       </div>

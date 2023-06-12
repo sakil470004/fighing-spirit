@@ -11,7 +11,6 @@ const ManageCourseModal = ({ selected ,classes,setClasses}) => {
             availableSeats
         } = data
         const courseData = { name: selected?.name, price: parseInt(price), image, availableSeats: parseInt(availableSeats), instructorName: selected?.instructorName, instructorEmail: selected?.instructorEmail, status: selected.status, _id: selected._id }
-        console.log(courseData)
         fetch(`https://fighting-spirit-server.vercel.app/updateCourse/${selected._id}`, {
             method: 'POST',
             headers: {
@@ -21,7 +20,6 @@ const ManageCourseModal = ({ selected ,classes,setClasses}) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     const remaining = classes.filter(c => c._id !== selected._id)
                     setClasses([courseData, ...remaining])

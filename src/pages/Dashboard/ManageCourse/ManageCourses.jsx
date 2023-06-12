@@ -35,7 +35,6 @@ const ManageCourses = () => {
                 if (data.deletedCount > 0) {
                     const remaining = classes.filter(c => c._id !== _id)
                     setClasses(remaining)
-                    console.log(remaining, classes)
                     toast.success('Deleted')
                 }
             })

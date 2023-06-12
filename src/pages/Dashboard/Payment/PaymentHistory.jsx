@@ -13,7 +13,7 @@ const PaymentHistory = () => {
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [])
-    console.log(details)
+    // console.log(details)
     return (
         <div>
             <SectionTittle heading={'Payment History'}></SectionTittle>

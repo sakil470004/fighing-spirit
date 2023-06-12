@@ -1,6 +1,7 @@
 
 <body>
   <h1>Fighting Spirit</h1>
+  <p>Live link https://fighting-spirit-b55ab.web.app/</p>
 
   <h2>Project Description</h2>
   <p>

@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import { FaRegUserCircle } from 'react-icons/fa';
+import { CiDark } from 'react-icons/ci';
+import { BsLightningCharge } from 'react-icons/bs';
 import { AuthContext } from '../../providers/AuthProvider';
 const Navbar = () => {
 
@@ -14,7 +16,7 @@ const Navbar = () => {
         logOut()
             .then()
     }
-    const darkButton = <label className='badge badge-warning my-auto select-none flex justify-center items-center'>{dark ? 'Light' : 'Dark'}
+    const darkButton = <label className='badge badge-error my-auto select-none flex justify-center items-center'>{dark ? <CiDark/> : <BsLightningCharge/>}
         <input type="checkbox" className="toggle toggle-error border-2 hidden" onChange={handleChange} defaultValue={dark} />
     </label>
     const navElement = <>
@@ -36,7 +38,7 @@ const Navbar = () => {
                     </ul>
 
                 </div>
-                <NavLink to={'/'} >{dark ? <div className='text-3xl text-error'>Fighting Sprit</div> : <img src={logo} width={100} alt="" />}</NavLink>
+                <NavLink to={'/'} >{dark ? <div className='text-xl text-error'>Fighting<br></br> Sprit</div> : <img src={logo} width={100} alt="" />}</NavLink>
             </div>
             
 
