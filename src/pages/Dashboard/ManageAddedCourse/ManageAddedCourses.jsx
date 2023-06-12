@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ManageAddedCoursesCard from './ManageAddedCoursesCard';
-import SectionTittle from '../Shared/SectionTittle';
+import SectionTittle from '../../Shared/SectionTittle';
 
 const ManageAddedCourses = () => {
     const [classes, setClasses] = useState([])

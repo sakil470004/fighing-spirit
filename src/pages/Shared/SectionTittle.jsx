@@ -10,7 +10,7 @@ const SectionTittle = ({ heading, subHeading }) => {
         []
     )
     return (
-        <div className='text-center my-10'>
+        <div className='text-center my-4'>
             <div className="divider "></div>
             {subHeading && <p className='text-gray-500 mb-2 italic'>{subHeading}</p>}
             <animated.div style={props}>

@@ -11,7 +11,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [role, setRole] = useState();
+    const [dark, setDark] = useState(false)
 
     const googleLogin = () => {
         return signInWithPopup(auth, googleProvider)
@@ -71,7 +71,9 @@ const AuthProvider = ({ children }) => {
         logOut,
         googleLogin,
         updateUserProfile,
-}
+        dark,
+        setDark
+    }
 
     return (
         <AuthContext.Provider value={authInfo}>

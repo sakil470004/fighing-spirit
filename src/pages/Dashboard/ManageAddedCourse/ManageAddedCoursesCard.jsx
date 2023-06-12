@@ -23,7 +23,7 @@ const ManageAddedCoursesCard = ({ course, index }) => {
             .then((data) => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    alert('Status updated')
+                   toast.success('Status Update')
                 }
             })
     }

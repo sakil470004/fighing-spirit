@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
+import { AuthContext } from '../../../providers/AuthProvider';
 import ManageCoursesCard from './ManageCoursesCard';
-import SectionTittle from '../Shared/SectionTittle';
+import SectionTittle from '../../Shared/SectionTittle';
 import ManageCourseModal from './ManageCourseModal';
+import { toast } from 'react-hot-toast';
 // import { useQuery } from '@tanstack/react-query';
 
 const ManageCourses = () => {
@@ -35,7 +36,7 @@ const ManageCourses = () => {
                     const remaining = classes.filter(c => c._id !== _id)
                     setClasses(remaining)
                     console.log(remaining, classes)
-                    alert('deleted')
+                    toast.success('Deleted')
                 }
             })
     }

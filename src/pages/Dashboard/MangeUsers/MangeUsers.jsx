@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MangeUsersCard from './MangeUsersCard';
-import SectionTittle from '../Shared/SectionTittle';
+import SectionTittle from '../../Shared/SectionTittle';
 
 const MangeUsers = () => {
     const [users, setUsers] = useState([]);

@@ -14,7 +14,7 @@ const Services = () => {
             "svg": "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
           },
           {
-            "name": "Self-Defense Workshops",
+            "name": "Self-Defense",
             "description": "Participate in our self-defense workshops and learn practical techniques to protect yourself in real-life situations. Our experienced instructors will teach you effective self-defense strategies.",
             "svg": "https://plus.unsplash.com/premium_photo-1663126246796-999a49ec8736?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1477&q=80"
           },

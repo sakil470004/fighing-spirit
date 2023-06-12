@@ -5,17 +5,23 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../providers/AuthProvider';
 const Navbar = () => {
 
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, setDark, dark } = useContext(AuthContext);
+
+    const handleChange = (e) => {
+        setDark(e.target.checked)
+    }
     const handleLogout = () => {
         logOut()
             .then()
     }
+    const darkButton = <label className='badge badge-warning my-auto select-none flex justify-center items-center'>{dark ? 'Light' : 'Dark'}
+        <input type="checkbox" className="toggle toggle-error border-2 hidden" onChange={handleChange} defaultValue={dark} />
+    </label>
     const navElement = <>
         <li><NavLink className='md:ml-4' to={'/'}>Home</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/classes'}>Courses</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/instructors'}>Instructors</NavLink></li>
         <li><NavLink className='md:ml-4' to={'/dashboard/home'} >Dashboard</NavLink></li>
-
     </>
     return (
         <div className="navbar shadow-md rounded-md px-4 m-0 z-[999999] py-4">
@@ -26,24 +32,35 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[9999]">
                         {navElement}
+                        {darkButton}
                     </ul>
+
                 </div>
-                <NavLink to={'/'} ><img src={logo} width={100} alt="" /></NavLink>
+                <NavLink to={'/'} >{dark ? <div className='text-3xl text-error'>Fighting Sprit</div> : <img src={logo} width={100} alt="" />}</NavLink>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {navElement}
-                </ul>
-            </div>
+            
+
+                <div className="navbar-center hidden lg:flex my-auto">
+                    <ul className="menu menu-horizontal px-1">
+                        {navElement}
+                    </ul>
+
+                {darkButton}
+                </div>
+            
             <div className="navbar-end">
+
+
+
+
                 {user ? <div className='flex gap-4 items-center justify-center'>
                     {user?.photoURL ?
                         <div className="avatar">
                             <div className="w-14 rounded-full">
-                                <img src={user.photoURL} />
+                                <img title={user?.displayName} src={user.photoURL} />
                             </div>
                         </div> :
-                        <p className="text-3xl"><FaRegUserCircle /></p>}
+                        <p title={user?.displayName} className="text-3xl"><FaRegUserCircle /></p>}
                     <button className='btn btn-error btn-outline' onClick={handleLogout}>Logout</button>
                 </div>
                     :

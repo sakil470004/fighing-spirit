@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import SectionTittle from '../Shared/SectionTittle';
-import { AuthContext } from '../../providers/AuthProvider';
+import SectionTittle from '../../Shared/SectionTittle';
+import { AuthContext } from '../../../providers/AuthProvider';
 import SelectedCoursesCard from './SelectedCoursesCard';
 
 const SelectedCourses = () => {
@@ -15,7 +15,7 @@ const SelectedCourses = () => {
             if (data.deletedCount > 0) {
                 const remaining = classes.filter(c => c._id !== id)
                 setClasses(remaining)
-                alert('deleted')
+                toast.success('Deleted')
             }
         })
     }

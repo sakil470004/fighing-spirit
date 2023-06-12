@@ -34,7 +34,7 @@ const SignUp = () => {
                             .then(data => {
                                 if (data.insertedId) {
                                     reset();
-                                    alert('crated')
+                                    toast.success('Account Created')
                                     navigate('/');
                                 }
                             })

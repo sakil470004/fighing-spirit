@@ -28,7 +28,7 @@ const SocialLogin = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
-                       alert('logged')
+                        toast.success('Logged By Social Account')
                         navigate(from, { replace: true });
                     })
             })

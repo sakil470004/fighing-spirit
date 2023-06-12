@@ -15,7 +15,7 @@ const MangeUsersCard = ({ user, index }) => {
             .then((data) => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
-                    alert('role updated')
+                    toast.success('Role Updated')
                 }
             })
     }

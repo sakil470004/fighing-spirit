@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../providers/AuthProvider';
-import SectionTittle from '../Shared/SectionTittle';
+import { AuthContext } from '../../../providers/AuthProvider';
+import SectionTittle from '../../Shared/SectionTittle';
 import MyEnrollClassCard from './MyEnrollClassesCard';
 
 const MyEnrollClasses = () => {

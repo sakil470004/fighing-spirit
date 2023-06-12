@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import SectionTittle from '../Shared/SectionTittle';
+import SectionTittle from '../../Shared/SectionTittle';
 import { useForm } from "react-hook-form";
-import { AuthContext } from '../../providers/AuthProvider';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const AddedCourses = () => {
     const { register,reset, handleSubmit,  formState: { errors } } = useForm();
@@ -24,8 +25,7 @@ const AddedCourses = () => {
             .then(res => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert('Added')
-                    // reset()
+                    toast.success('Class Added')
                 }
 
             })

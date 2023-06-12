@@ -4,6 +4,7 @@ import ClassesCard from '../Shared/ClassesCard';
 
 import { AuthContext } from '../../providers/AuthProvider';
 import useRole from '../../hooks/useRole';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -34,8 +35,7 @@ const Classes = () => {
             .then(res => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert('Added')
-                    // reset()
+                    toast.success('Class Added')
                 }
 
             })

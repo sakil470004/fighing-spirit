@@ -97,8 +97,7 @@ const CheckoutForm = ({ cart, price }) => {
                 .then(res => res.json())
                 .then((data) => {
                     if (data.result.insertedId) {
-                        alert('Completed')
-                        // reset()
+                        toast.success('Payment Completed')
                     }
     
                 })

@@ -25,7 +25,7 @@ const ManageCourseModal = ({ selected ,classes,setClasses}) => {
                 if (data.modifiedCount > 0) {
                     const remaining = classes.filter(c => c._id !== selected._id)
                     setClasses([courseData, ...remaining])
-                    alert('Updated')
+                    toast.success('Class Update')
 
                 }
             })
@@ -37,6 +37,7 @@ const ManageCourseModal = ({ selected ,classes,setClasses}) => {
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg  mx-auto bg-white rounded-lg shadow-md p-6">
                 <button htmlFor="my_modal_1" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 <h2 className="text-2xl font-bold mb-4">Update Course</h2>
+                <p>Esc To quit the modal</p>
                 <div className="mb-4">
                     <label htmlFor="name" className="block mb-2">Course Name</label>
                     <input id="name" defaultValue={selected?.name} disabled placeholder="Enter Course Name" {...register("name")} className="w-full border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
