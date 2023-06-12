@@ -22,7 +22,7 @@ const Slider = () => {
         "Train your body and mind with the ancient art of Muay Thai",
     ]
     return (
-        <div className='my-10'>
+        <div className='my-5'>
             <Swiper
                 scrollbar={{
                     hide: true,

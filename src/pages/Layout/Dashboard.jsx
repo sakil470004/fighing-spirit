@@ -9,11 +9,15 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { BiImageAdd ,BiHistory} from "react-icons/bi";
 import { TbArrowsJoin2 } from "react-icons/tb";
 import { MdFlightClass } from "react-icons/md";
+import { Helmet } from 'react-helmet-async';
 
 const Dashbaord = () => {
   const { role } = useRole()
   return (
     <div className="dashboardCSS drawer lg:drawer-open">
+    <Helmet>
+                <title>Fighting Spirit | Dashboard</title>
+            </Helmet>
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content my-0 mx-4">
         {/* Page content here */}

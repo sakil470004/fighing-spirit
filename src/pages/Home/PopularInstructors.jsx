@@ -38,7 +38,7 @@ const PopularInstructors = () => {
     }, []);
 
     return (
-        <div className='my-20 '>
+        <div className='my-10 '>
             <SectionTittle heading={'Skilled Trainer'} subHeading={'Meet Our Highly Skilled Instructor!'}></SectionTittle>
             <Swiper
                 loop={true}

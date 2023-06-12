@@ -38,7 +38,7 @@ const PopularClasses = () => {
     }, []);
 
     return (
-        <div className='my-20 '>
+        <div className='my-10 '>
             <SectionTittle heading={'Popular Courses'} subHeading={'Course You May Find Interesting'}></SectionTittle>
             <Swiper
                 loop={true}

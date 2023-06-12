@@ -26,7 +26,7 @@ const Services = () => {
       ]
       
     return (
-        <div  className='my-20 shadow-md rounded-lg'>
+        <div  className='my-10 shadow-md rounded-lg'>
            <SectionTittle heading={'Our Services'} subHeading={'Why You Choose Us! '}></SectionTittle>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                 {/* card */}

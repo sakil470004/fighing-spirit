@@ -5,6 +5,7 @@ import ClassesCard from '../Shared/ClassesCard';
 import { AuthContext } from '../../providers/AuthProvider';
 import useRole from '../../hooks/useRole';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -41,7 +42,10 @@ const Classes = () => {
             })
     }
     return (
-        <div className='my-20'>
+        <div className='my-10'>
+            <Helmet>
+                <title>Fighting Spirit | Classes</title>
+            </Helmet>
             <SectionTittle heading={'All Training Courses'}></SectionTittle>
             <div className='grid md:grid-cols-3 gap-6'>
                 {
