@@ -19,6 +19,7 @@ import Dashbaord from "../Layout/Dashboard";
 import MyEnrollClasses from "../Dashboard/MyEnrollClasses";
 import Payment from "../Dashboard/Payment/Payment";
 import PaymentHistory from "../Dashboard/Payment/PaymentHistory";
+import Page404 from "../Eror/Page404";
 
 export const router = createBrowserRouter([
     {
@@ -87,6 +88,11 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
             },
         ]
+    }
+    ,
+    {
+        path:'*',
+        element:<Page404/>
     }
 
 ]);
