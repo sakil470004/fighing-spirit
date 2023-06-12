@@ -1,47 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Project Name</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.5;
-      padding: 20px;
-    }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 24px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 10px;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 5px;
-    }
-
-    code {
-      font-family: Consolas, monospace;
-      background-color: #f2f2f2;
-      padding: 2px 5px;
-      border-radius: 4px;
-    }
-  </style>
-</head>
 <body>
   <h1>Fighting Spirit</h1>
 

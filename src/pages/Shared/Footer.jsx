@@ -16,7 +16,7 @@ function Footer() {
         <div>
           <h4>About Us</h4>
           <small>
-            <span className='text-pink-full'>Battle Toys</span>  offer an exciting range of action-packed toys that ignite adventure and inspire creativity. From fearless warriors to powerful superheroes, our collection promises endless hours of thrilling playtime. Unleash the excitement and let the battles begin at Battle Toys!
+            <span className='text-error'>Fighting Sprit</span> This web application is a MERN project with Firebase and Google login functionalities. It features a dashboard where admins can manage instructors and admins, instructors can create courses, and students can select and pay for courses. The project leverages MongoDB, Express.js, React, and Node.js to deliver a comprehensive e-learning platform.
 
           </small>
         </div>
@@ -28,7 +28,7 @@ function Footer() {
         </div>
 
       </footer>
-      <p className='text-center mt-6 text-red-500'>&copy; 2023 <span className="text-pink-full">Battle Toys</span>. All rights reserved.</p>
+      <p className='text-center mt-6 text-error'>&copy; 2023 <span className="text-pink-full">Fighting Spirit</span>. All rights reserved.</p>
     </div>
 
   );
