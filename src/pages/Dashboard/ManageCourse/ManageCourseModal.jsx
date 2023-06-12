@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 const ManageCourseModal = ({ selected ,classes,setClasses}) => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();

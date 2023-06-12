@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import SectionTittle from '../../Shared/SectionTittle';
 import { AuthContext } from '../../../providers/AuthProvider';
 import SelectedCoursesCard from './SelectedCoursesCard';
+import { toast } from 'react-hot-toast';
 
 const SelectedCourses = () => {
     const [classes, setClasses] = useState([])

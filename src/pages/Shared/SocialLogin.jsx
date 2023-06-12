@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-hot-toast";
 
 
 const SocialLogin = () => {
