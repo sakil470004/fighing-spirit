@@ -5,11 +5,11 @@ import useRole from '../../hooks/useRole';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
-    const {role,loading:load}=useRole()
+    const {loading:load}=useRole()
     const location = useLocation();
 
 
-    if (loading || !role || load) {
+    if (loading || load) {
         return <div className='flex items-center h-[600px] justify-center'>
             <progress className="progress w-56"></progress></div>
     }

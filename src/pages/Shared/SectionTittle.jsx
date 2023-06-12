@@ -5,7 +5,7 @@ const SectionTittle = ({ heading, subHeading }) => {
         () => ({
             from: { opacity: 0, fontSize: '4px' },
             to: { opacity: 1, fontSize: '40px' },
-            delay:1000
+            delay:700
         }),
         []
     )

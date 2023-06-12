@@ -87,7 +87,7 @@ const SignUp = () => {
                             </label>
                         </div>
                         <div className="mb-6">
-                            <button type="submit" className="w-full py-2 px-4 bg-pink-400 text-white rounded-md hover:bg-pink-600">Sign Up</button>
+                            <button type="submit" className="w-full  bg-pink-400 text-white rounded-md hover:bg-pink-600">Sign Up</button>
                         </div>
                     </form>
                     <p className="text-sm text-center">Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link></p>
