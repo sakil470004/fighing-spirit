@@ -12,11 +12,11 @@
   <ul>
     <li>Authentication:
       <ul>
-        <li>Firebase login</li>
+        <li>Firebase Password login</li>
         <li>Google login</li>
       </ul>
     </li>
-    <li>Dashboard:
+<li>Dashboard:
       <ul>
         <li>Admin functionalities:
           <ul>
@@ -36,9 +36,15 @@
           <ul>
             <li>Select courses from the courses page</li>
             <li>Enroll in courses</li>
+            <li>Pament Using Stripe (developer mode)</li>
             <li>Payment for courses</li>
           </ul>
         </li>
+      </ul>
+    </li>
+       <li>Home
+      <ul>
+        <li>Dark and Light mode</li>
       </ul>
     </li>
   </ul>
