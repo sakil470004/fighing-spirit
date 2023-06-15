@@ -26,7 +26,7 @@ const Navbar = () => {
         <li><NavLink className='md:ml-4' to={'/dashboard/home'} >Dashboard</NavLink></li>
     </>
     return (
-        <div className="navbar shadow-md rounded-md px-4 m-0 z-[999999] py-4">
+        <div className="navbar shadow-md rounded-md md:px-4 m-0 z-[999999] py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden z-[9999]">
@@ -58,11 +58,11 @@ const Navbar = () => {
                 {user ? <div className='flex gap-4 items-center justify-center'>
                     {user?.photoURL ?
                         <div className="avatar">
-                            <div className="w-14 rounded-full">
+                            <div className="w-8 md:w-14  rounded-full">
                                 <img title={user?.displayName} src={user.photoURL} />
                             </div>
                         </div> :
-                        <p title={user?.displayName} className="text-3xl"><FaRegUserCircle /></p>}
+                        <p title={user?.displayName} className="text-2xl md:text-3xl"><FaRegUserCircle /></p>}
                     <button className='btn btn-error btn-outline' onClick={handleLogout}>Logout</button>
                 </div>
                     :
