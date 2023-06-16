@@ -11,16 +11,17 @@ const Main = () => {
     <div data-theme={dark ? "dark" : "light"} >
       <div className='max-w-[1440px] mx-auto'>
 
-        <div className='mx-2'>
-          <Navbar></Navbar>
+        <Navbar></Navbar>
+        <div className='mx-1 md:mx-2'>
           <Outlet></Outlet>
-          <Footer></Footer>
-          <Toaster
-            position="top-right"
-            reverseOrder={false}
-          />
 
         </div>
+        <Footer></Footer>
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+        />
+
       </div>
     </div>
   );

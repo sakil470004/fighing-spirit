@@ -5,6 +5,7 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import { CiDark } from 'react-icons/ci';
 import { BsLightningCharge } from 'react-icons/bs';
 import { AuthContext } from '../../providers/AuthProvider';
+import {AiOutlineLogout } from "react-icons/ai";
 const Navbar = () => {
 
     const { user, logOut, setDark, dark } = useContext(AuthContext);
@@ -26,11 +27,11 @@ const Navbar = () => {
         <li><NavLink className='md:ml-4' to={'/dashboard/home'} >Dashboard</NavLink></li>
     </>
     return (
-        <div className="navbar shadow-md rounded-md md:px-4 m-0 z-[999999] py-4">
+        <div className="navbar justify-center  max-h-20 shadow-md rounded-md md:px-4 m-0  py-2 md:py-4 ">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden z-[9999]">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    <label tabIndex={0} className="btn btn-ghost   lg:hidden ">
+                       |||
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-[9999]">
                         {navElement}
@@ -38,7 +39,7 @@ const Navbar = () => {
                     </ul>
 
                 </div>
-                <NavLink to={'/'} >{dark ? <div className='text-xl text-error'>Fighting<br></br> Sprit</div> : <img src={logo} width={100} alt="" />}</NavLink>
+                <NavLink to={'/'} >{dark ? <div className='text-base md:text-xl text-error'>Fighting<br></br> Sprit</div> : <img src={logo} className='w-12 md:w-24' alt="" />}</NavLink>
             </div>
             
 
@@ -58,15 +59,15 @@ const Navbar = () => {
                 {user ? <div className='flex gap-4 items-center justify-center'>
                     {user?.photoURL ?
                         <div className="avatar">
-                            <div className="w-8 md:w-14  rounded-full">
+                            <div className="w-11 md:w-14  rounded-full">
                                 <img title={user?.displayName} src={user.photoURL} />
                             </div>
                         </div> :
                         <p title={user?.displayName} className="text-2xl md:text-3xl"><FaRegUserCircle /></p>}
-                    <button className='btn btn-error btn-outline' onClick={handleLogout}>Logout</button>
+                    <button className='btn btn-error btn-outline' onClick={handleLogout}><AiOutlineLogout/></button>
                 </div>
                     :
-                    <Link className='btn btn-error' to={'/login'}>Login</Link>
+                    <Link className='btn btn-sm btn-error md:btn-md text-white' to={'/login'}>Login</Link>
                 }
             </div>
         </div>

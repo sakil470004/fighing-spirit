@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import logo from './../../assets/logo.png'
 import useRole from '../../hooks/useRole';
@@ -10,9 +10,11 @@ import { BiImageAdd ,BiHistory} from "react-icons/bi";
 import { TbArrowsJoin2 } from "react-icons/tb";
 import { MdFlightClass } from "react-icons/md";
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Dashbaord = () => {
   const { role } = useRole()
+  const {logOut}=useContext(AuthContext);
   return (
     <div className="dashboardCSS drawer lg:drawer-open">
     <Helmet>
@@ -56,7 +58,10 @@ const Dashbaord = () => {
           <li><NavLink to={'/'}><AiOutlineHome/> Home</NavLink></li>
           <li><NavLink to={'/classes'}><MdFlightClass/>Courses</NavLink></li>
           <li><NavLink to={'/instructors'}><GiTeacher/>Instructors</NavLink></li>
-          <p ><button className='btn btn-error w-full' ><AiOutlineLogout/> Log out</button></p>
+          <p onClick={()=>{
+            logOut()
+            .then()
+          }}><button className='btn btn-error w-full' ><AiOutlineLogout/> Log out</button></p>
         </ul>
 
       </div>
